@@ -1,5 +1,6 @@
 *.parquet
 *.ipynb
+*.mycfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
