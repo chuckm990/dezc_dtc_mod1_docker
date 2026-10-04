@@ -61,11 +61,14 @@ def run(
     target_table: str,
     chunksize: int,
 ) -> None:
+    # Setting the URL address for fetching the csv
     prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow'
     url = f'{prefix}/yellow_tripdata_{year}-{month:02d}.csv.gz'
 
+    # Creating the database engine using the function parameters
     engine = create_engine(f'postgresql+psycopg://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}')
 
+    # Creating an iterable from the dataframe, setting the data types, dates, and chunksize 
     df_iter = pd.read_csv(
         url,
         dtype=dtype,
@@ -74,8 +77,10 @@ def run(
         chunksize=chunksize
     )
 
+    # Flag variable for initializing the ingestion of the first chunk
     first = True
 
+    # Iterating the chunks for ingesting data into the table
     for df_chunk in tqdm(df_iter):
 
         if first:
@@ -83,7 +88,7 @@ def run(
             df_chunk.head(0).to_sql(
                 name=target_table,
                 con=engine,
-                if_exists="replace"
+                if_exists="replace" # initializes the table from scratch, if exists it drops it
             )
             first = False
             print("\nTable created")
@@ -94,8 +99,6 @@ def run(
             con=engine,
             if_exists="append"
         )
-
-        # print("Inserted:", len(df_chunk))
 
 if __name__ == '__main__':
     run()
