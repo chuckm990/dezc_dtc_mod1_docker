@@ -2,7 +2,7 @@
 
 > Data Engineering Zoomcamp (DataTalksClub) · **Module 1.1: Docker**
 
-A containerized, reproducible batch ingestion pipeline. It pulls NYC Yellow Taxi trip data from the web, loads it into PostgreSQL in memory-safe chunks, and exposes it through pgAdmin for SQL exploration. Everything runs with one command and nothing needs to be installed on the host except Docker. This was done as an exercise while learning technologies and important concepts such as virtualization, reproducible environments, isolation, stateless containers, how to preserve data in mounted binds or in named volumes, and how to adjust dependencies properly. All the material and the classes live in the following repo [Docker Module]((https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform)).
+A containerized, reproducible batch ingestion pipeline. It pulls NYC Yellow Taxi trip data from the web, loads it into PostgreSQL in memory-safe chunks, and exposes it through pgAdmin for SQL exploration. Everything runs with one command and nothing needs to be installed on the host except Docker. This was done as an exercise while learning technologies and important concepts such as virtualization, reproducible environments, isolation, stateless containers, how to preserve data in mounted binds or in named volumes, and how to adjust dependencies properly. All the material and the classes live in the following repo [Docker Module](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform).
 
 ## Architecture
 
